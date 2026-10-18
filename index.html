@@ -1,0 +1,483 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ff5f91">
+  <title>Happy Birthday, Auntie Milan! 🎂</title>
+
+  <style>
+    :root {
+      --pink: #ff5f91;
+      --hot-pink: #ff367c;
+      --yellow: #ffe66d;
+      --purple: #9b72cf;
+      --cream: #fff9f0;
+      --ink: #44263d;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      overflow-x: hidden;
+      font-family: "Trebuchet MS", Arial, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 10% 10%, #ffe0eb 0, transparent 30%),
+        radial-gradient(circle at 90% 20%, #e8dcff 0, transparent 28%),
+        linear-gradient(135deg, #fff8ed, #ffeef5 50%, #f3eaff);
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .floating {
+      position: fixed;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.7;
+      animation: float 5s ease-in-out infinite;
+    }
+
+    .float-one {
+      top: 10%;
+      left: 5%;
+      font-size: 2.5rem;
+    }
+
+    .float-two {
+      top: 20%;
+      right: 5%;
+      font-size: 2rem;
+      animation-delay: 1s;
+    }
+
+    .float-three {
+      top: 60%;
+      left: 3%;
+      font-size: 2rem;
+      animation-delay: 2s;
+    }
+
+    .float-four {
+      top: 70%;
+      right: 4%;
+      font-size: 2.5rem;
+      animation-delay: 0.5s;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(-8deg); }
+      50% { transform: translateY(-18px) rotate(8deg); }
+    }
+
+    .hero {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 65px 20px 30px;
+    }
+
+    .top-label {
+      display: inline-block;
+      background: white;
+      border: 2px dashed var(--pink);
+      color: var(--hot-pink);
+      padding: 10px 18px;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 900;
+      letter-spacing: 2px;
+      transform: rotate(-3deg);
+      box-shadow: 0 5px 0 #ffd0e0;
+    }
+
+    h1 {
+      max-width: 900px;
+      margin: 25px auto 12px;
+      font-size: clamp(2.7rem, 9vw, 6rem);
+      line-height: 1.03;
+      letter-spacing: -3px;
+      font-weight: 1000;
+      color: var(--hot-pink);
+      text-shadow: 3px 4px 0 white, 6px 7px 0 #ffc7dd;
+      animation: pop-in 0.8s ease-out both;
+    }
+
+    h1 span {
+      color: var(--purple);
+      display: block;
+    }
+
+    @keyframes pop-in {
+      from { opacity: 0; transform: scale(0.75) rotate(-4deg); }
+      to { opacity: 1; transform: scale(1) rotate(0); }
+    }
+
+    .subtitle {
+      max-width: 620px;
+      margin: 22px auto 0;
+      font-size: clamp(1rem, 3vw, 1.25rem);
+      line-height: 1.7;
+      font-weight: 700;
+    }
+
+    .subtitle strong {
+      color: var(--hot-pink);
+    }
+
+    .sticker {
+      display: inline-block;
+      margin-top: 24px;
+      padding: 12px 18px;
+      background: var(--yellow);
+      border: 3px solid white;
+      border-radius: 15px;
+      font-weight: 900;
+      box-shadow: 4px 5px 0 #e5b9d1;
+      transform: rotate(2deg);
+    }
+
+    .section {
+      position: relative;
+      z-index: 1;
+      width: min(760px, calc(100% - 32px));
+      margin: 20px auto 40px;
+    }
+
+    .video-card {
+      background: white;
+      padding: 12px;
+      border: 3px solid white;
+      border-radius: 28px;
+      box-shadow: 0 18px 45px #8e4d7724, 0 0 0 3px #ffc4da;
+      transform: rotate(-1deg);
+    }
+
+    .video-heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+      padding: 12px 10px 16px;
+      font-weight: 900;
+    }
+
+    .video-heading .tag {
+      color: white;
+      background: var(--purple);
+      padding: 7px 11px;
+      border-radius: 50px;
+      font-size: 0.75rem;
+      letter-spacing: 1px;
+    }
+
+    video {
+      display: block;
+      width: 100%;
+      max-height: 520px;
+      aspect-ratio: 16 / 9;
+      object-fit: contain;
+      background: #281c2b;
+      border-radius: 18px;
+    }
+
+    .video-caption {
+      text-align: center;
+      padding: 16px 8px 9px;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: #745c70;
+    }
+
+    .message-card {
+      margin-top: 38px;
+      padding: clamp(24px, 6vw, 42px);
+      background: #ffffffd9;
+      border: 3px dashed #ff9cbd;
+      border-radius: 30px;
+      text-align: center;
+      box-shadow: 0 12px 30px #8e4d7714;
+    }
+
+    .message-card h2 {
+      font-size: clamp(1.8rem, 6vw, 2.6rem);
+      margin-bottom: 18px;
+      color: var(--purple);
+    }
+
+    .message-card p {
+      line-height: 1.9;
+      font-size: 1.04rem;
+      margin: 12px 0;
+    }
+
+    .big-quote {
+      font-size: 1.25rem !important;
+      font-weight: 900;
+      color: var(--hot-pink);
+    }
+
+    .chaos-button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 16px 24px;
+      color: var(--ink);
+      background: var(--yellow);
+      border: 3px solid white;
+      border-radius: 50px;
+      font-weight: 1000;
+      cursor: pointer;
+      box-shadow: 0 7px 0 #e4b84f;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+
+    .chaos-button:hover {
+      transform: translateY(-3px) rotate(-1deg);
+      box-shadow: 0 10px 0 #e4b84f;
+    }
+
+    .chaos-button:active {
+      transform: translateY(4px);
+      box-shadow: 0 2px 0 #e4b84f;
+    }
+
+    .surprise {
+      display: none;
+      margin: 24px auto 0;
+      padding: 20px;
+      max-width: 450px;
+      background: #fff0a8;
+      border-radius: 20px;
+      border: 2px solid white;
+      font-weight: 900;
+      line-height: 1.8;
+      animation: pop-in 0.35s ease-out;
+    }
+
+    .surprise.show {
+      display: block;
+    }
+
+    .signature {
+      margin-top: 28px;
+      font-weight: 900;
+      color: var(--purple);
+      line-height: 1.8;
+    }
+
+    footer {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 10px 20px 40px;
+      color: #876b82;
+      font-size: 0.85rem;
+      line-height: 1.8;
+    }
+
+    .confetti {
+      position: fixed;
+      z-index: 10;
+      top: -25px;
+      pointer-events: none;
+      animation: fall linear forwards;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(110vh) rotate(720deg);
+        opacity: 0.2;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        padding-top: 48px;
+      }
+
+      h1 {
+        letter-spacing: -1.5px;
+      }
+
+      .video-card {
+        padding: 8px;
+      }
+
+      .video-heading {
+        padding: 10px 6px 12px;
+      }
+
+      .message-card p {
+        font-size: 0.98rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="floating float-one" aria-hidden="true">🎈</div>
+  <div class="floating float-two" aria-hidden="true">💖</div>
+  <div class="floating float-three" aria-hidden="true">🎉</div>
+  <div class="floating float-four" aria-hidden="true">✨</div>
+
+  <header class="hero">
+    <div class="top-label">🚨 SUPER POGI NG GUMAWA NITO !!!🚨</div>
+
+    <h1>
+      HAPPY BIRTHDAY,
+      <span>AUNTIE MILAN!</span>
+    </h1>
+
+    <p class="subtitle">
+      Attention, everyone! Today we celebrate the one,
+      the only!! <strong>AUNTIE MILAN!</strong>
+      🥳
+    </p>
+
+    <div class="sticker">
+      ⚠️ WARNING: Birthday Tita Has Been Detected ⚠️
+    </div>
+  </header>
+
+  <main class="section">
+    <section class="video-card" aria-label="Birthday video">
+      <div class="video-heading">
+        <span>🎬 A VERY IMPORTANT MESSAGE</span>
+        <span class="tag">TOP SECRET 🤫</span>
+      </div>
+
+      <!-- Put your video file beside index.html and name it video.mp4 -->
+      <video controls playsinline preload="metadata">
+        <source src="video (1).mp4" type="video/mp4">
+        Sorry, your browser doesn't support this video.
+      </video>
+
+      <p class="video-caption">
+        Made with love, undeniable handsomeness, and the limited budget
+        of your favorite pamangkin. 😂
+        <br>
+        <strong>Press play. You have no choice.</strong>
+      </p>
+    </section>
+
+    <section class="message-card">
+      <h2>Dear Auntie Milan, 💐</h2>
+
+      <p>
+        Belated Happy birthday to my very beautiful auntie!
+        🎂💖
+      </p>
+
+      <p>
+        Thank you po sa laptop, as you can see nagagamit ko po sya ng "mabuti",
+        medyo late po ang website kasi may pasok po ako kahapon,sorry pooo.
+      </p>
+
+      <p>
+        Thank you for being an amazing auntie. You deserve all the
+        love, good things, and extra servings of your favorite food
+        today.
+      </p>
+
+      <p class="big-quote">
+        Aging like fine wine? No, aging like a limited-edition Auntie.
+        😎✨
+      </p>
+
+      <p>
+        Enjoy your special day, Auntie! Keep smiling, keep shining,
+        knowing you can always count on me for sure, 
+        that's what pamangkins are for.
+      </p>
+
+      <button class="chaos-button" id="surpriseButton" type="button">
+        🎁 PRESS FOR A VERY IMPORTANT SURPRISE
+      </button>
+
+      <div class="surprise" id="surpriseMessage" aria-live="polite">
+        🎉 SURPRISE! 🎉<br>
+        Congratulations, Auntie Milan! You have officially completed year 52.<br><br>
+        Your birthday gift includes unlimited love, good vibes,
+        and one (1) extremely handsome pamangkin.<br><br>
+        NO REFUNDS. NO EXCHANGES. 😂💖
+      </div>
+
+      <div class="signature">
+        With love and  handsomeness,<br>
+        Your Super Poging  Pamangkin 😌🤌
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Made with 💖, chaos, and a little bit of HTML.<br>
+    Happy Birthday, Auntie Milan! 🎂
+  </footer>
+
+  <script>
+    const surpriseButton = document.getElementById("surpriseButton");
+    const surpriseMessage = document.getElementById("surpriseMessage");
+
+    function launchConfetti(amount = 90) {
+      const symbols = ["🎉", "💖", "✨", "🎈", "🎂", "🌸"];
+
+      for (let i = 0; i < amount; i++) {
+        const piece = document.createElement("span");
+
+        piece.className = "confetti";
+        piece.textContent =
+          symbols[Math.floor(Math.random() * symbols.length)];
+
+        piece.style.left = Math.random() * 100 + "vw";
+        piece.style.fontSize = (16 + Math.random() * 22) + "px";
+        piece.style.animationDuration = (2.5 + Math.random() * 3) + "s";
+        piece.style.animationDelay = (Math.random() * 0.8) + "s";
+
+        document.body.appendChild(piece);
+
+        piece.addEventListener("animationend", () => {
+          piece.remove();
+        });
+      }
+    }
+
+    surpriseButton.addEventListener("click", () => {
+      const isVisible = surpriseMessage.classList.toggle("show");
+
+      surpriseButton.textContent = isVisible
+        ? "💖 SURPRISE UNLOCKED!"
+        : "🎁 PRESS FOR A VERY IMPORTANT SURPRISE";
+
+      if (isVisible) {
+        launchConfetti(120);
+      }
+    });
+
+    // A little birthday celebration when the page first opens.
+    window.addEventListener("load", () => {
+      launchConfetti(35);
+    });
+  </script>
+</body>
+</html>
